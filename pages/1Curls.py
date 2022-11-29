@@ -53,8 +53,16 @@ def start(sets, reps, restAmt):
 
         with poseSolutions.Pose(min_detection_confidence=0.7, min_tracking_confidence=0.7) as poseTrack:
             cap.isOpened()
+            if not cap.isOpened():
+                print("Cannot open camera")
+                exit()
             while repsCounter < reps:
                 ret, frame = cap.read()
+
+                if not ret:
+                    print("Can't receive frame (stream end?). Exiting ...")
+                    break
+
 
                 # change image to rgb to allow mediapipe to process images
                 image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
