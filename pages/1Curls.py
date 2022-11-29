@@ -43,7 +43,7 @@ def calcAngle(a, b, c):
     return ang
 
 def start(sets, reps, restAmt):
-    cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
+    cap = cv2.VideoCapture(1,cv2.CAP_DSHOW)
     setsCounter = 0
 
     while setsCounter < sets:
